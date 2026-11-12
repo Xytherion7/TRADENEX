@@ -1,0 +1,12 @@
+TRADENEX 0.4.0 — ПРОЕКТ И СБОРКА
+
+Это ИСХОДНЫЙ КОД, а не готовый EXE. Не пытайтесь переименовать ZIP в EXE.
+
+Цель релиза для пользователя: один файл TRADENEX-Setup-x64.exe. Пользователю не нужны Node.js, Rust, Visual Studio или BAT-файлы.
+
+Чтобы получить установщик:
+1. Поместите этот проект в GitHub repository.
+2. Откройте Actions → Build TRADENEX for Windows → Run workflow.
+3. После успешной Windows-сборки скачайте artifact TRADENEX-Setup-x64.exe.
+
+Workflow собирает NSIS installer на Windows runner. Перед распространением протестируйте его на Windows 11.

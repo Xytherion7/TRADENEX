@@ -1,0 +1,16 @@
+[package]
+name = "tradenex"
+version = "0.4.0"
+description = "TRADENEX market intelligence desktop terminal"
+authors = ["TRADENEX"]
+edition = "2021"
+
+[lib]
+name = "tradenex_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "=2.7.2", features = [] }
+
+[dependencies]
+tauri = { version = "=2.12.3", features = [] }

@@ -9,6 +9,7 @@ import {
   type CandlestickData,
   type HistogramData,
   type LineData,
+  type Time,
   type UTCTimestamp,
 } from 'lightweight-charts';
 import type { Candle } from '../lib/types';
@@ -121,7 +122,11 @@ export function CandleChart({ candles, loading = false }: Props) {
       },
       localization: {
         priceFormatter: priceLabel,
-        timeFormatter: (time) => typeof time === 'number' ? timeLabel(time) : String(time),
+        timeFormatter: (time: Time) => {
+          if (typeof time === 'number') return timeLabel(time);
+          if (typeof time === 'string') return time;
+          return `${time.year}-${String(time.month).padStart(2, '0')}-${String(time.day).padStart(2, '0')}`;
+        },
       },
       handleScroll: { mouseWheel: true, pressedMouseMove: true, horzTouchDrag: true, vertTouchDrag: false },
       handleScale: { axisPressedMouseMove: true, mouseWheel: true, pinch: true },

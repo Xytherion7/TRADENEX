@@ -459,7 +459,7 @@ function App() {
                 <section className="panel chart-panel">
                   <div className="chart-titlebar">
                     <div className="instrument-title"><span className="coin-avatar large">{selectedSymbol.slice(0, 1)}</span><div><h2>{selectedSymbol.replace(/USDT$/, '')}<span> / {market === 'crypto' ? 'USDT' : (activeTicker?.currency ?? 'STOCK')}</span></h2><small>{market === 'crypto' ? 'Binance · Spot market' : 'Twelve Data · Stock market'}</small></div></div>
-                    <div className="chart-price-block"><strong>{activeTicker ? formatPrice(activeTicker.price, market, activeTicker.currency) : latestCandle ? formatPrice(latestCandle.close, market, activeTicker?.currency) : '—'}</strong>{activeTicker && <Change value={activeTicker.changePct}/>}</div>
+                    <div className="chart-price-block"><strong>{activeTicker ? formatPrice(activeTicker.price, market, activeTicker.currency) : latestCandle ? formatPrice(latestCandle.close, market) : '—'}</strong>{activeTicker && <Change value={activeTicker.changePct}/>}</div>
                   </div>
                   <div className="chart-toolbar"><div className="timeframe-tabs">{(['15m', '1h', '4h', '1d', '1w'] as Interval[]).map((value) => <button key={value} className={interval === value ? 'selected' : ''} onClick={() => setInterval(value)}>{value}</button>)}</div><div className="chart-provider"><span className="live-pulse"/> {market === 'crypto' ? 'BINANCE' : 'TWELVE DATA'} · {candles.length} BARS</div></div>
                   <CandleChart candles={candles} loading={loadingCandles}/>
